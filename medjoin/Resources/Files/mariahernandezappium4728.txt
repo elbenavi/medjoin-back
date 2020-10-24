@@ -1,0 +1,5 @@
+﻿2020-06-15 15:26:29:927 [Appium] Welcome to Appium v1.17.1
+2020-06-15 15:26:29:931 [Appium] Non-default server args:
+2020-06-15 15:26:29:932 [Appium]   port: 4728
+2020-06-15 15:26:29:933 [Appium]   logFile: Logs/appium4728.txt
+2020-06-15 15:26:29:992 [Appium] Appium REST http interface listener started on 0.0.0.0:4728
