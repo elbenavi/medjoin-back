@@ -23,7 +23,7 @@ stages:
 
           - task: Docker@2
             inputs:
-              containerRegistry: 'acrimagesmedjoin.azurecr.io'
+              containerRegistry: 'acrmedjoin'
               repository: 'medjoin'
               command: 'buildAndPush'
               Dockerfile: '**/Dockerfile'
