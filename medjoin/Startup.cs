@@ -117,5 +117,13 @@ namespace medjoin
                 endpoints.MapControllers();
             });
         }
+
+        public void ApplyMigrations(Context context)
+        {
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+            }
+        }
     }
 }
