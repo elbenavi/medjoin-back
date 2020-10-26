@@ -20,7 +20,11 @@ stages:
       - job: BuildImage
         displayName: Build Image
         steps:
-
+          - script: ls /home/vsts/work/1/s/
+            displayName: ls 1
+          
+          - script: ls /home/vsts/work/1/s/medjoin
+            displayName: ls 2
           - task: Docker@2
             inputs:
               containerRegistry: 'acrmedjoin'
