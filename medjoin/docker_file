@@ -6,11 +6,11 @@ EXPOSE 80
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-WORKDIR /src
-COPY ["medjoin/medjoin.csproj", "medjoin/"]
-RUN dotnet restore "medjoin/medjoin.csproj"
+WORKDIR "/src"
+COPY ["../medjoin.csproj", "."]
+RUN dotnet restore "medjoin.csproj"
 COPY . .
-WORKDIR "/src/medjoin"
+WORKDIR "/src"
 RUN dotnet build "medjoin.csproj" -c Release -o /app/build
 
 FROM build AS publish
