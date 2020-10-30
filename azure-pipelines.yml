@@ -25,7 +25,7 @@ stages:
       - job: BuildImage
         displayName: Build Image
         steps:
-          - download: current
+          - download: medjoiniaac
           
           - script: ls $(Pipeline.Workspace)
             displayName: ls 2
