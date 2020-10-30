@@ -13,6 +13,11 @@ variables:
   - name: tag
     value: '$(Build.BuildId)'
 
+resources:
+  pipelines:
+    - pipeline: medjoiniaac
+      source: medjoin-iaac
+
 stages:
   - stage: Build
     displayName: Build
