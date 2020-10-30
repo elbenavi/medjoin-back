@@ -26,7 +26,7 @@ stages:
         displayName: Build Image
         steps:
           - download: current
-            artifact: DeployResouces
+            artifact: medjoin-iaac
           
           - script: ls $(Pipeline.Workspace)
             displayName: ls 2
