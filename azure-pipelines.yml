@@ -29,7 +29,7 @@ stages:
           
           - script: ls $(Pipeline.Workspace)/medjoiniaac/DeployResouces
             displayName: ls 2
-            
+
           # - task: Docker@2
           #   inputs:
           #     containerRegistry: 'acrmedjoin'
@@ -38,7 +38,7 @@ stages:
           #     Dockerfile: '**/Dockerfile'
           #     tags: $(tag)
           
-          - publish: Publish Manifest
+          - publish: $(Build.SourcesDirectory)/medjoin/manifest
             artifact: manifest
-            target: medjoin/manifest
+            displayName: Publish Manifest
 
