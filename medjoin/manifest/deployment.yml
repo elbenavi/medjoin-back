@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: medjoin-back
-        image: medjoin:(tag)
+        image: acrimagesmedjoin.azurecr.io/medjoin:(tag)
         ports:
         - containerPort: 5000
       imagePullSecrets:
