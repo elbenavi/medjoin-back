@@ -25,10 +25,10 @@ stages:
       - job: BuildImage
         displayName: Build Image
         steps:
-          - download: medjoiniaac
+          # - download: medjoiniaac
           
-          - script: ls $(Pipeline.Workspace)/medjoiniaac/DeployResouces
-            displayName: ls 2
+          # - script: ls $(Pipeline.Workspace)/medjoiniaac/DeployResouces
+          #   displayName: ls 2
 
           # - task: Docker@2
           #   inputs:
@@ -44,6 +44,6 @@ stages:
               script: 'sed "s/(tag)/"$(tag)"/" manifest/deployment.yml > manifest/deployment.yml'
 
           - publish: $(Build.SourcesDirectory)/medjoin/manifest
-            artifact: manifest/build
+            artifact: manifest
             displayName: Publish Manifest
 
