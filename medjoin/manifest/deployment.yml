@@ -19,6 +19,8 @@ spec:
         image: medjoin:(tag)
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+        - name: app-acr
 ---
 apiVersion: v1
 kind: Service
