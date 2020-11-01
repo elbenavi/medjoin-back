@@ -27,8 +27,7 @@ stages:
         steps:
           # - download: medjoiniaac
           
-          # - script: ls $(Pipeline.Workspace)/medjoiniaac/DeployResouces
-          #   displayName: ls 2
+          
 
           # - task: Docker@2
           #   inputs:
@@ -37,11 +36,19 @@ stages:
           #     command: 'buildAndPush'
           #     Dockerfile: '**/Dockerfile'
           #     tags: $(tag)
-          
+          - script: cat $(Build.SourcesDirectory)/medjoin/manifest/deployment.yml
+            displayName: cat 1
+
           - task: CmdLine@2
             displayName: 'Build manifests'
             inputs:
               script: 'sed "s/(tag)/"$(tag)"/" $(Build.SourcesDirectory)/medjoin/manifest/deployment.yml > $(Build.SourcesDirectory)/medjoin/manifest/deployment.yml'
+
+          - script: ls $(Build.SourcesDirectory)/medjoin/manifest
+            displayName: ls
+
+          - script: cat $(Build.SourcesDirectory)/medjoin/manifest/deployment.yml
+            displayName: cat 2
 
           - publish: $(Build.SourcesDirectory)/medjoin/manifest
             artifact: manifest
