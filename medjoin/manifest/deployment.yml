@@ -27,6 +27,7 @@ kind: Service
 metadata:
   name: medjoin-back
 spec:
+  type: LoadBalancer
   selector:
     app: medjoin-back
   ports:
