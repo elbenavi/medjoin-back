@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: medjoin-back
-        image: nginx:1.7.9
+        image: medjoin:(tag)
         ports:
         - containerPort: 5000
 ---

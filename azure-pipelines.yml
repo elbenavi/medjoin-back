@@ -38,7 +38,12 @@ stages:
           #     Dockerfile: '**/Dockerfile'
           #     tags: $(tag)
           
+          - task: CmdLine@2
+            displayName: 'Build manifests'
+            inputs:
+              script: 'mkdir manifest/build && sed "s/(tag)/"$(tag)"/" manifest/deployment.yml > manifests/build/deployment.yml'
+
           - publish: $(Build.SourcesDirectory)/medjoin/manifest
-            artifact: manifest
+            artifact: manifest/build
             displayName: Publish Manifest
 
