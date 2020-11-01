@@ -41,7 +41,7 @@ stages:
           - task: CmdLine@2
             displayName: 'Build manifests'
             inputs:
-              script: 'mkdir manifest/build && sed "s/(tag)/"$(tag)"/" manifest/deployment.yml > manifests/build/deployment.yml'
+              script: 'sed "s/(tag)/"$(tag)"/" manifest/deployment.yml > manifest/deployment.yml'
 
           - publish: $(Build.SourcesDirectory)/medjoin/manifest
             artifact: manifest/build
