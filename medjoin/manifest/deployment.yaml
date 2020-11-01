@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: medjoin-back
+  labels:
+    app: medjoin-back
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: medjoin-back
+  template:
+    metadata:
+      labels:
+        app: medjoin-back
+    spec:
+      containers:
+      - name: medjoin-back
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 5000
+---
+kind: Service
+metadata:
+  name: medjoin-back
+spec:
+  selector:
+    app: medjoin-back
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
