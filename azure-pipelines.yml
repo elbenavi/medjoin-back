@@ -13,6 +13,11 @@ variables:
   - name: tag
     value: '$(Build.BuildId)'
 
+resources:
+  pipelines:
+    - pipeline: medjoiniaac
+      source: medjoin-iaac
+
 stages:
   - stage: Build
     displayName: Build
@@ -20,11 +25,11 @@ stages:
       - job: BuildImage
         displayName: Build Image
         steps:
-          - script: ls /home/vsts/work/1/s/
-            displayName: ls 1
+          - download: medjoiniaac
           
-          - script: ls /home/vsts/work/1/s/medjoin
+          - script: ls $(Pipeline.Workspace)/medjoiniaac/DeployResouces
             displayName: ls 2
+            
           # - task: Docker@2
           #   inputs:
           #     containerRegistry: 'acrmedjoin'
@@ -36,3 +41,4 @@ stages:
           - publish: Publish Manifest
             artifact: manifest
             target: medjoin/manifest
+
